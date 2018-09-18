@@ -8,11 +8,9 @@ public class main {
 
         Scanner userInput = new Scanner(System.in);
 
-
         String[] coffeeShop = {"Coffee cups", "Sugar packets", "Plastic spoons", "Napkins", "Milk"};
 
         int[] inventory = {500, 2225, 800, 5500, 10};
-
 
         int userChoice;
 
@@ -23,9 +21,9 @@ public class main {
             System.out.println("2.  Check an items current inventory");
             System.out.println("3.  Add to an items inventory");
             System.out.println("4.  Subtract from an items inventory");
-
+            System.out.println("5. Exit the program");
             userChoice = userInput.nextInt();
-        } while (userChoice != 1 && userChoice != 2 && userChoice != 3 && userChoice != 4 && userChoice != 5);
+
 
         switch (userChoice) {
             case 1:
@@ -142,7 +140,6 @@ public class main {
                     System.out.println("You subtracted " + userInput5 + " " + coffeeShop[1]);
                     System.out.println("There are now a total of " + inventory[1] + " " + coffeeShop[1]);
 
-
                 }
                 else if (userInput4 == 3){
                     inventory[2] -= userInput5;
@@ -160,10 +157,11 @@ public class main {
                     if (inventory[3] < 0){
                         System.out.print("There are not " + userInput5 + " items in stock");
                         inventory[3] = 0;
-                        break;
+
                     }
                     System.out.println("You subtracted " + userInput5 + " " + coffeeShop[3]);
                     System.out.println("There are now a total of " + inventory[3] + " " + coffeeShop[3]);
+                        break;
 
                 }
                 else if (userInput4 == 5){
@@ -181,14 +179,20 @@ public class main {
                     System.out.println("That is not a valid choice");
                 }
 
+                break;
 
+            case 5:
                 break;
 
             default:
-                System.out.println("That is not a valid choice.");
-                break;
+                System.out.println("That is not a valid choice. Please try again");
 
+                break;
 
         }
 
-    }}
+        } while (userChoice != 5);
+
+    }
+
+}
